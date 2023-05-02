@@ -5,8 +5,6 @@ import com.example.UserManagementApp.Repo.UMSDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class UMSService {
     @Autowired
@@ -18,5 +16,19 @@ public class UMSService {
 
     public Iterable<UMS> getAll() {
         return dao.fetchUser();
+    }
+
+    public Iterable<UMS> findBy(Integer userId) {
+        Iterable<UMS> res = getAll();
+        for (UMS ans : res) {
+            if (ans.getUserId().equals(userId)) {
+                return (Iterable<UMS>) ans;
+            }
+        }
+        return null;
+    }
+
+    public void update(Integer userId, UMS ums) {
+        dao.update(userId,ums);
     }
 }

@@ -9,16 +9,28 @@ import java.util.List;
 @Repository
 public class UMSDao {
 
-    List<UMS> userList =  new ArrayList<>();
+    List<UMS> userList = new ArrayList<>();
 
 
-
-    public String add(UMS ums){
+    public String add(UMS ums) {
         userList.add(ums);
         return "added sucessfully";
     }
 
     public Iterable<UMS> fetchUser() {
         return userList;
+    }
+
+    public void update(Integer userId, UMS ums) {
+        for(UMS ans : userList){
+            if(ans.getUserId().equals(userId)){
+                        ans.setDate(ums.getDate());
+                        ans.setDob(ums.getDob());
+                        ans.setEmail(ums.getEmail());
+                        ans.setTime(ums.getTime());
+                        ans.setDate(ums.getDate());
+            }
+        }
+
     }
 }
