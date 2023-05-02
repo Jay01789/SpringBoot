@@ -31,4 +31,9 @@ public class UMSService {
     public void update(Integer userId, UMS ums) {
         dao.update(userId,ums);
     }
+
+    public void delete(Integer userId) {
+        dao.delete(userId);
+
+    }
 }

@@ -33,4 +33,13 @@ public class UMSDao {
         }
 
     }
+
+    public void delete(Integer userId) {
+        for(UMS ans : userList){
+            if(ans.getUserId().equals(userId)){
+               userList.remove(ans);
+            }
+
+        }
+    }
 }

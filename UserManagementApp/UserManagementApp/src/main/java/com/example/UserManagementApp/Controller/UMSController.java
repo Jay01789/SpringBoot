@@ -33,6 +33,11 @@ public class UMSController {
     public void update(@PathVariable String id , @RequestBody UMS ums){
         Integer userId = Integer.parseInt(id);
         service.update(userId,ums);
+    }
 
+    @DeleteMapping(value = "/delete/{id}")
+    public void delete(@PathVariable String id){
+        Integer userId =Integer.parseInt(id);
+        service.delete(userId);
     }
 }
