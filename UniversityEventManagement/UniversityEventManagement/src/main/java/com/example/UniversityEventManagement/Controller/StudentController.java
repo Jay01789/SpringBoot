@@ -3,6 +3,7 @@ package com.example.UniversityEventManagement.Controller;
 import com.example.UniversityEventManagement.Model.DepartmentType;
 import com.example.UniversityEventManagement.Model.Student;
 import com.example.UniversityEventManagement.Service.StudentService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +15,7 @@ public class StudentController {
     private StudentService studentService;
 
     @PostMapping(value = "/add-Students")
-    public void add(@RequestBody Student student){
+    public void add(@Valid @RequestBody Student student){
         studentService.add(student);
     }
 
